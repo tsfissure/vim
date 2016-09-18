@@ -15,4 +15,5 @@ setlocal cindent
 let b:undo_indent = "setl cin<"
 set tabstop=2
 set shiftwidth=2
+set noexpandtab
 set tags+=$VIMRUNTIME/../../../BoostArchive/boost_1_61_0/boost/asio/tags
