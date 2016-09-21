@@ -13,6 +13,4 @@ let b:did_indent = 1
 setlocal cindent
 
 let b:undo_indent = "setl cin<"
-set tabstop=2
-set shiftwidth=2
-set noexpandtab
+source $VIMRUNTIME/indent/tysextend.vim

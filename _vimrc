@@ -127,6 +127,9 @@ set guioptions-=T					" 关闭工具栏
 
 vmap <C-C> "+y  				" 选中状态下 Ctrl+C 复制到系统剪贴板
 nmap <silent> <C-V> "+p  		" 从系统剪贴板粘贴 Ctrl+V  
+" Ctrl+BackSpace删除单词
+inoremap <C-BS> <ESC>dba<BS>
+nnoremap <C-BS> dba<BS><ESC>
 
 " 窗口切换
 map <C-TAB> <Esc>:tabn<CR>
@@ -138,7 +141,7 @@ map <C-S-j> <Esc><C-W><C-j>
 
 " 括号补全
 inoremap ( ()<ESC>i
-inoremap { {}<ESC>i<CR><ESC>O
+inoremap { {}<ESC>i<CR><ESC>kA
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
 " --------------------  Vim 键盘映射   -------------------- }
