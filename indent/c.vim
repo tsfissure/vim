@@ -13,4 +13,5 @@ let b:did_indent = 1
 setlocal cindent
 
 let b:undo_indent = "setl cin<"
-source $VIMRUNTIME/indent/tysextend.vim
+source $VIMRUNTIME/indent/tysformatter.vim
+source $VIMRUNTIME/indent/tyssetting.vim
