@@ -1,8 +1,8 @@
 
-if exists("b:did_format")
+if exists("b:did_setting")
     finish
 endif
-let b:did_format = 1
+let b:did_setting = 1
 
 set tabstop=2
 set shiftwidth=2

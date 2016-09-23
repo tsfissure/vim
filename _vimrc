@@ -91,7 +91,7 @@ set scrolloff=5                     " 光标保持离底边5行
 set nobackup						" 不生成备份文件
 set noswapfile                      " 不生成swap文件
 set noundofile						" 不生成undo文件
-set nowrap                          " 设置不自动换行
+"set nowrap                          " 设置不自动换行
 set history=50                      " vim最多记住50条历史命令
 " set noerrorbells                    " 关闭响铃
 set cursorline						" 高亮当前行
@@ -108,7 +108,7 @@ colorscheme delek-tys					" 主题
 set guifont=Monaco:h10
 
 " 设置编码
-set fileencodings=utf-8,gbk,gbk2312,cp936,latin-1	" 打开文件检测类型
+set fileencodings=utf-8,gbk,gbk2312,cp936,latin-1	" 打开文件时检测类型
 set fileencoding=utf-8								" 保存
 
 au GUIEnter * simalt ~x 			" 打开就最大化窗口
@@ -130,6 +130,8 @@ nmap <silent> <C-V> "+p  		" 从系统剪贴板粘贴 Ctrl+V
 " Ctrl+BackSpace删除单词
 inoremap <C-BS> <ESC>dba<BS>
 nnoremap <C-BS> dba<BS><ESC>
+" 跳到最后
+inoremap <silent><C-e> <ESC>A
 
 " 窗口切换
 map <C-TAB> <Esc>:tabn<CR>
