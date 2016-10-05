@@ -38,8 +38,8 @@ filetype off                        " 关闭类型检测，Vundle必须
 " call vundle#begin()
 
 " 设置Vundle的runtime path -- win版本
-set rtp+=D:/EditMachine/Vim/vimfiles/Vundle/Vundle.vim/
-call vundle#begin('D:/EditMachine/Vim/vimfiles/Vundle/')  
+set rtp+=$VIMRUNTIME/../vimfiles/Vundle/Vundle.vim/
+call vundle#begin('$VIMRUNTIME/../vimfiles/Vundle/')  
 
 " 让Vundle管理自己
 Plugin 'gmarik/Vundle.vim'
