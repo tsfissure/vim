@@ -143,7 +143,7 @@ map <C-S-j> <Esc><C-W><C-j>
 
 " 括号补全
 inoremap ( ()<ESC>i
-inoremap { {}<ESC>i<CR><ESC>kA
+inoremap { {}<ESC>i
 inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
 " --------------------  Vim 键盘映射   -------------------- }

@@ -6,7 +6,7 @@ let s:did_format = 1
 let s:leftSpace = ['{']
 let s:rightSpace = ['}', ',', ';']
 let s:space = ['^', '|', '='] "TODO +,-,>,<,&
-let s:space2 = ['+=', '-=', '*=', '/=', '^=', '|=', '&&', '||', '==', '>>', '<<', '!=', '>=', '<=', '&=']
+let s:space2 = ['+=', '-=', '*=', '/=', '%=', '^=', '|=', '&&', '||', '==', '>>', '<<', '!=', '>=', '<=', '&=']
 
 function IsSpace(char)
     return a:char == ' ' || a:char == "\t"
@@ -141,7 +141,7 @@ function TryFormatCpp()
         call AddSpace(i + 1)
         call AddTwoSpace(i + 1)
     endfor
-    echo "Format Over"
+    echo "Format Success"
 endfunction
 
 nnoremap <silent><F2>  :call TryFormatCpp()<CR>
