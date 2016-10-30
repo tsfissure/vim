@@ -105,7 +105,7 @@ syntax enable						" 语法高亮
 syntax on
 " 主题
 colorscheme delek-tys					" 主题
-set guifont=Monaco:h10
+set guifont=source_code_pro:h12
 
 " 设置编码
 set fileencodings=utf-8,gbk,gbk2312,cp936,latin-1	" 打开文件时检测类型
