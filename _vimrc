@@ -5,28 +5,50 @@ behave mswin
 
 set diffexpr=MyDiff()
 function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
+    let opt = '-a --binary '
+    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+    let arg1 = v:fname_in
+    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+    let arg2 = v:fname_new
+    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+    let arg3 = v:fname_out
+    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+    let eq = ''
+    if $VIMRUNTIME =~ ' '
+        if &sh =~ '\<cmd'
+            let cmd = '""' . $VIMRUNTIME . '\diff"'
+            let eq = '"'
+        else
+            let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+        endif
     else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+        let cmd = $VIMRUNTIME . '\diff'd
     endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'd
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+    silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
+
+""定义函数SetTitle，自动插入文件头
+func SetTitle()
+    "如果文件类型为.python文件
+    if &filetype == 'python'
+        call setline(1, "\#coding = utf-8")
+        call setline(2, "\'\'\'")
+        call setline(3, "Created on ".strftime("%c"))
+        call setline(4, "")
+        call setline(5, "@author: tys")
+        call setline(6, "\'\'\'")
+        call setline(7, "")
+    elseif &filetype == 'cpp' || &filetype == 'c'
+        call setline(1, "/*************************************************************************")
+        call setline(2, "\ @Author: tsfissure")
+        call setline(3, "")
+        call setline(4, "\ @Created Time : ".strftime("%c"))
+        call setline(5, "")
+        call setline(6, " ************************************************************************/")
+        call setline(7, "")
+    endif
+endfunc
 
 
 " -------------------- Vundle 起始设置 -------------------- {
@@ -87,7 +109,7 @@ set showmatch						" 括号匹配
 set hlsearch						" 高亮搜索
 " set insearch						" 实时搜索
 set ignorecase						" 搜索忽略大小写
-set scrolloff=5                     " 光标保持离底边5行
+set scrolloff=3                     " 光标保持离底边5行
 set nobackup						" 不生成备份文件
 set noswapfile                      " 不生成swap文件
 set noundofile						" 不生成undo文件
@@ -121,6 +143,9 @@ set guioptions-=T					" 关闭工具栏
 "    \ if line("'\"") > 1 && line("'\"") <= line("$") |
 "    \   exe "normal! g`\"" |
 "    \ endif
+
+" 默文件头
+autocmd BufNewFile *.py,*.c,*.cc,*.cpp silent execute ':call SetTitle()' | normal G
 " --------------------  Vim 基本设置   -------------------- }
 
 " --------------------  Vim 键盘映射   -------------------- {
