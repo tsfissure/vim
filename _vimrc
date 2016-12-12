@@ -32,7 +32,7 @@ endfunction
 func SetTitle()
     "如果文件类型为.python文件
     if &filetype == 'python'
-        call setline(1, "\#coding = utf-8")
+        call setline(1, "\#coding=utf-8")
         call setline(2, "\'\'\'")
         call setline(3, "Created on ".strftime("%c"))
         call setline(4, "")
@@ -40,12 +40,12 @@ func SetTitle()
         call setline(6, "\'\'\'")
         call setline(7, "")
     elseif &filetype == 'cpp' || &filetype == 'c'
-        call setline(1, "/*************************************************************************")
+        call setline(1, "/****************************************")
         call setline(2, "\ @Author: tsfissure")
         call setline(3, "")
         call setline(4, "\ @Created Time : ".strftime("%c"))
         call setline(5, "")
-        call setline(6, " ************************************************************************/")
+        call setline(6, " ****************************************/")
         call setline(7, "")
     endif
 endfunc
