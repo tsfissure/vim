@@ -44,9 +44,8 @@ func SetTitle()
         call setline(2, "\ @Author: tsfissure")
         call setline(3, "")
         call setline(4, "\ @Created Time : ".strftime("%c"))
-        call setline(5, "")
-        call setline(6, " ****************************************/")
-        call setline(7, "")
+        call setline(5, " ****************************************/")
+        call setline(6, "")
     endif
 endfunc
 
