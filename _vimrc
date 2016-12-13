@@ -39,13 +39,16 @@ func SetTitle()
         call setline(5, "@author: tys")
         call setline(6, "\'\'\'")
         call setline(7, "")
-    elseif &filetype == 'cpp' || &filetype == 'c'
+    elseif &filetype == 'cpp' || &filetype == 'c' || &filetype == 'h'
         call setline(1, "/****************************************")
-        call setline(2, "\ @Author: tsfissure")
+        call setline(2, "\ @Author: tsfissureasfas")
         call setline(3, "")
         call setline(4, "\ @Created Time : ".strftime("%c"))
         call setline(5, " ****************************************/")
         call setline(6, "")
+    else
+        call setline(1, "/* File Name: ".expand("%")." */")
+        call setline(2, "")
     endif
 endfunc
 
@@ -144,7 +147,7 @@ set guioptions-=T					" 关闭工具栏
 "    \ endif
 
 " 默文件头
-autocmd BufNewFile *.py,*.c,*.cc,*.cpp silent execute ':call SetTitle()' | normal G
+autocmd BufNewFile * silent execute ':call SetTitle()' | normal G
 " --------------------  Vim 基本设置   -------------------- }
 
 " --------------------  Vim 键盘映射   -------------------- {
@@ -176,7 +179,7 @@ inoremap " ""<ESC>i
 
 " --------------------  插件具体设置   -------------------- {
 " AutoComplPop
-let g:acp_behaviorKeywordLength = 3                     " 第3个字符触发补全
+let g:acp_behaviorKeywordLength = 7                     " 第3个字符触发补全
 let g:acp_ignorecaseOption = 1							" 忽略大小写
 let g:acp_completeOption = '.,w,b,u,t,i,k'              " complete的参数
 
