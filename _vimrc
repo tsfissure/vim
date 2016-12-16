@@ -168,7 +168,8 @@ map <C-S-l> <Esc><C-W><C-l>
 map <C-S-k> <Esc><C-W><C-k>
 map <C-S-j> <Esc><C-W><C-j>
 nmap <C-F1> :q<CR>
-nmap <F1> :wa <CR>
+map <F1> <Esc>:wa<CR>
+nmap <F3> :tabe 
 
 " 括号补全
 inoremap ( ()<ESC>i
