@@ -46,6 +46,8 @@ func SetTitle()
         call setline(4, "\ @Created Time : ".strftime("%c"))
         call setline(5, " ****************************************/")
         call setline(6, "")
+        call setline(7, "#include <bits/stdc++.h>")
+        call setline(8, "")
     else
         call setline(1, "/* File Name: ".expand("%")." */")
         call setline(2, "")
@@ -169,7 +171,7 @@ map <C-S-k> <Esc><C-W><C-k>
 map <C-S-j> <Esc><C-W><C-j>
 nmap <C-F1> :q<CR>
 map <F1> <Esc>:wa<CR>
-nmap <F3> :tabe 
+nmap <F2> :tabe 
 
 " 括号补全
 inoremap ( ()<ESC>i

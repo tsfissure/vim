@@ -144,4 +144,4 @@ function TryFormatCpp()
     echo "Format Success"
 endfunction
 
-nnoremap <silent><F2>  :call TryFormatCpp()<CR>
+nnoremap <silent><F3>  :call TryFormatCpp()<CR>
