@@ -87,7 +87,7 @@ Plugin 'kien/ctrlp.vim'
 " 缩进对齐线
 Plugin 'Yggdroot/indentLine'
 " tags浏览
-Plugin 'taglist.vim'
+" Plugin 'taglist.vim'
 " -------------------- Vundle 所有插件 -------------------- }
 
 " -------------------- Vundle 结束设置 -------------------- {
@@ -131,7 +131,7 @@ syntax enable						" 语法高亮
 syntax on
 " 主题
 colorscheme delek-tys					" 主题
-set guifont=source_code_pro:h12
+set guifont=courier_new:h12
 
 " 设置编码
 set fileencodings=utf-8,gbk,gbk2312,cp936,latin-1	" 打开文件时检测类型
@@ -172,6 +172,8 @@ map <C-S-j> <Esc><C-W><C-j>
 nmap <C-F1> :q<CR>
 map <F1> <Esc>:wa<CR>
 nmap <F2> :tabe 
+nmap <F3> :!start explorer /select,%:p<CR>
+imap <F3> <Esc><F3>
 
 " 括号补全
 inoremap ( ()<ESC>i
