@@ -36,12 +36,16 @@ func SetTitle()
         call setline(2, "\'\'\'")
         call setline(3, "Created on ".strftime("%c"))
         call setline(4, "")
-        call setline(5, "@author: tys")
+        call setline(5, "@author: tsfissure")
         call setline(6, "\'\'\'")
         call setline(7, "")
+		call setline(8, "")
+		call setline(9, "")
+		call setline(10, "if __name__ == '__main__':")
+		call setline(11, "\tpass")
     elseif &filetype == 'cpp' || &filetype == 'c' || &filetype == 'h'
         call setline(1, "/****************************************")
-        call setline(2, "\ @Author: tsfissureasfas")
+        call setline(2, "\ @Author: tsfissure")
         call setline(3, "")
         call setline(4, "\ @Created Time : ".strftime("%c"))
         call setline(5, " ****************************************/")
@@ -213,6 +217,4 @@ let Tlist_WinWidth = 25                                 " 窗口宽度
 
 " --------------------   ctags 设置    -------------------- {
 set tags=tags;
-""set tags+=$VIMRUNTIME/../../../BoostArchive/boost_1_61_0/boost/asio/tags
-""set tags+=D:/BoostArchive/boost_1_61_0/boost/asio/tags
 " --------------------   ctags 设置    -------------------- }
