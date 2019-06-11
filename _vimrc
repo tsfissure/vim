@@ -42,7 +42,9 @@ func SetTitle()
 		call setline(8, "")
 		call setline(9, "")
 		call setline(10, "if __name__ == '__main__':")
-		call setline(11, "\tpass")
+		call setline(11, "    pass")
+		call setline(12, "")
+		silent execute 'normal 7gg'
     elseif &filetype == 'cpp' || &filetype == 'c' || &filetype == 'h'
         call setline(1, "/****************************************")
         call setline(2, "\ @Author: tsfissure")
@@ -52,9 +54,15 @@ func SetTitle()
         call setline(6, "")
         call setline(7, "#include <bits/stdc++.h>")
         call setline(8, "")
+		call setline(9, "int main {")
+		call setline(10, "  return 0;")
+		call setline(11, "}")
+		call setline(12, "")
+		silent execute 'normal 9gg'
     else
         call setline(1, "/* File Name: ".expand("%")." */")
         call setline(2, "")
+		silent execute 'normal G'
     endif
 endfunc
 
@@ -135,7 +143,7 @@ syntax enable						" 语法高亮
 syntax on
 " 主题
 colorscheme delek-tys					" 主题
-set guifont=courier_new:h12
+set guifont=Consolas:h12
 
 " 设置编码
 set fileencodings=utf-8,gbk,gbk2312,cp936,latin-1	" 打开文件时检测类型
@@ -153,7 +161,7 @@ set guioptions-=T					" 关闭工具栏
 "    \ endif
 
 " 默文件头
-autocmd BufNewFile * silent execute ':call SetTitle()' | normal G
+autocmd BufNewFile * silent execute ':call SetTitle()'
 " --------------------  Vim 基本设置   -------------------- }
 
 " --------------------  Vim 键盘映射   -------------------- {
